@@ -13,42 +13,48 @@ class Form extends React.Component {
 
         };
       }
+
+      onFieldChange =(event) =>{
+          this.setState({
+              [event.target.name]: event.target.value
+          })
+      }
      
 
-    onNameChange =(event) =>{
+    // onNameChange =(event) =>{
         
 
-        this.setState({
-            userName: event.target.value
-        })
+    //     this.setState({
+    //         userName: event.target.value
+    //     })
         
 
 
-    }
-    onEmailChange =(event) =>{
-        this.setState({
-            userEmail: event.target.value
-        })
+    // }
+    // onEmailChange =(event) =>{
+    //     this.setState({
+    //         userEmail: event.target.value
+    //     })
 
-    }
-    onPhoneChange =(event) =>{
-        this.setState({
-            userPhone: event.target.value
-        })
+    // }
+    // onPhoneChange =(event) =>{
+    //     this.setState({
+    //         userPhone: event.target.value
+    //     })
 
-    }
-    onGenderChange =(event) =>{
-        this.setState({
-            userGender: event.target.value
-        })
+    // }
+    // onGenderChange =(event) =>{
+    //     this.setState({
+    //         userGender: event.target.value
+    //     })
 
-    }
-    onPasswordChange =(event) =>{
-        this.setState({
-            userPassword: event.target.value
-        })
+    // }
+    // onPasswordChange =(event) =>{
+    //     this.setState({
+    //         userPassword: event.target.value
+    //     })
 
-    }
+    // }
     onSubmit = () =>{
 
         if(this.state.userPhone === '' || this.state.userPhone.length !==10 )
@@ -88,22 +94,30 @@ clearFormFields = () =>{
                 <p className="title">User Form</p>
 
                 <input
-                onChange={this.onNameChange}
+                 name="userName"
+                 onChange={this.onFieldChange}
                 value={this.state.userName}
                 className="input-style" type='text'
                 placeholder="Enter your Name" />
 
-                <input onChange={this.onEmailChange}
+                <input
+                name="userEmail"
+                onChange={this.onFieldChange}
+
                 value={this.state.userEmail}
                 className="input-style" type='text'
                 placeholder="Enter your Email" />
                 
-                <input onChange={this.onPhoneChange}
+                <input 
+                name="userPhone"
+                onChange={this.onFieldChange}
                 value={this.state.userPhone}
                 className="input-style" type='text'
                 placeholder="Enter your Phone" />  
 
-                <select onChange={this.onGenderChange} 
+                <select 
+                name="userGender"
+                onChange={this.onFieldChange} 
                 value={this.state.userGender}
                 className="input-style">
                     <option value=''>Choose Gender</option>
@@ -111,7 +125,9 @@ clearFormFields = () =>{
                     <option value='female'>Female</option>
                     
                     </select> 
-                <input onChange={this.onPasswordChange} 
+                <input 
+                name="userPassword"
+                onChange={this.onPasswordChange} 
                 value={this.state.userPassword}
                 className="input-style" type='Password'
                 placeholder="Enter your Password" />  
